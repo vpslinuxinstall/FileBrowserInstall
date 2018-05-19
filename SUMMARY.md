@@ -10,6 +10,7 @@
     * [Docker pull](cloud-1/pydio/docker-pull.md)
   * [Kodexplorer](cloud-1/kodexplorer/README.md)
     * [Docker pull](cloud-1/kodexplorer/docker-pull.md)
-* [Web Ftp](web-ftp.md)
-* h5ai
+* [Web Ftp](web-ftp/README.md)
+  * h5ai
+    * [Docker pull](web-ftp/h5ai/docker-pull.md)
 
