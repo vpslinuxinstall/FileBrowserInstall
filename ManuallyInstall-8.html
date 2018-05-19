@@ -1,0 +1,48 @@
+<html><head><meta charSet="utf-8"/><title data-react-helmet="true">Manually Install · Linux tutorial  · 看云</title><meta data-react-helmet="true" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/><link rel="stylesheet" href="asset/website.css"/></head><body><div id="main"><div class="root"><div class="window-container"><div class="window-head"><div class="toolbar"><a class="title" href=".">Linux tutorial</a><div class="extra"></div></div></div><div class="progress"><div style="width:75%" class="progress-bar"></div></div><div class="window-body"><div class="sidebar"><div class="sidebar-selector"><div class="item active"><i class="icon content"></i>目录</div><div class="item"><i class="icon search"></i>搜索</div></div><div class="sidebar-body"><div class="catalog-body active"><ul><li class=""><div class="wholerow"></div><i class="icon"></i><a href="Tutorial.html" class="text">Tutorial</a></li><li class="open"><div class="wholerow"></div><i class="icon caret down"></i><a href="Cloud.html" class="text">Cloud</a><ul><li class=""><div class="wholerow"></div><i class="icon caret right"></i><a href="Pydio.html" class="text">Pydio</a><ul><li class=""><div class="wholerow"></div><i class="icon"></i><a href="Pydio-1.html" class="text">Docker pull</a></li></ul></li><li class="open"><div class="wholerow"></div><i class="icon caret down"></i><a href="filebrowser.html" class="text">filebrowser</a><ul><li class="active"><div class="wholerow"></div><i class="icon"></i><a href="ManuallyInstall-8.html" class="text">Manually Install</a></li><li class=""><div class="wholerow"></div><i class="icon"></i><a href="ManuallyInstall-1.html" class="text">Manually Install</a></li><li class=""><div class="wholerow"></div><i class="icon"></i><a href="Automaticallyinstall.html" class="text">Automatically install</a></li></ul></li></ul></li></ul></div><div class="search-body"><div class="search-form"><form class="ui form"><div class="ui small fluid icon input"><input type="text" placeholder="请输入搜索关键词..."/><i class="search icon"></i></div></form></div><div class="search-result"><div class="blankslate"><i class="icon search"></i><p>暂无相关搜索结果！</p></div></div></div></div><div class="sidebar-copyright">本文档使用 <a href="http://www.kancloud.cn" target="_blank">看云</a> 构建</div></div><div class="workspace"><div class="article-wrap"><div class="article"><div class="article-head"><div class="left floated tools"><a class="item icon"><i class="icon align justify"></i></a></div><div class="right floated tools"></div><h1>Manually Install</h1></div><div class="article-body"><h2 data-line="0" class="line"><a id="1Manually_Install_0"></a>1.Manually Install</h2>
+<h3 data-line="2" class="line"><a id="11_Edit_filebrowserservicehttpsgithubcomvpslinuxinstallFilebrowserblobmasterfilebrowserservice_2"></a>1.1 Edit <a href="https://github.com/vpslinuxinstall/Filebrowser/blob/master/filebrowser.service" target="_blank">filebrowser.service</a></h3>
+<pre><code class="language-bash">nano /lib/systemd/system/filebrowser.service
+</code></pre>
+<pre><code class="language-bash">Description=Filebrowser Service  
+After=network.target  
+Wants=network.target  
+
+[Service]  
+Type=simple  
+PIDFile=/var/run/filebrowser.pid  
+ExecStart=/usr/bin/filebrowser -c /etc/filebrowser/filebrowser.json  
+Restart=on-failure  
+
+[Install]  
+WantedBy=multi-user.target
+</code></pre>
+<h3 data-line="23" class="line"><a id="12_Edit_filebrowserjsonhttpsgithubcomvpslinuxinstallFilebrowserblobmasterfilebrowserjson_23"></a>1.2 Edit <a href="https://github.com/vpslinuxinstall/Filebrowser/blob/master/filebrowser.json" target="_blank">filebrowser.json</a></h3>
+<pre><code class="language-bash">nano /etc/filebrowser/filebrowser.json
+</code></pre>
+<pre><code class="language-bash">{  
+  &quot;port&quot;: 8300,  
+  &quot;noAuth&quot;: false,  
+  &quot;baseURL&quot;: &quot;/admin&quot;,  
+  &quot;address&quot;: &quot;0.0.0.0&quot;,  
+  &quot;reCaptchaKey&quot;: &quot;&quot;,  
+  &quot;reCaptchaSecret&quot;: &quot;&quot;,  
+  &quot;database&quot;: &quot;/etc/filebrowser/database.db&quot;,  
+  &quot;log&quot;: &quot;stdout&quot;,  
+  &quot;plugin&quot;: &quot;&quot;,  
+  &quot;scope&quot;: &quot;/&quot;,  
+  &quot;allowCommands&quot;: true,  
+  &quot;allowEdit&quot;: true,    
+  &quot;allowNew&quot;: true,  
+  &quot;commands&quot;: [  
+    &quot;git&quot;,  
+    &quot;svn&quot;  
+  ]  
+}  
+</code></pre>
+<h3 data-line="51" class="line"><a id="13_Download_filebrowserhttpsgithubcomvpslinuxinstallFilebrowserblobmasterfilebrowser_to_usrbin_51"></a>1.3 Download <a href="https://github.com/vpslinuxinstall/Filebrowser/blob/master/filebrowser" target="_blank">filebrowser</a> to /usr/bin/</h3>
+<pre><code class="language-bash">cd /usr
+cd bin
+wget https://github.com/vpslinuxinstall/Filebrowser/blob/master/filebrowser
+systemctl enable filebrowser
+systemctl start filebrowser
+</code></pre>
+ </div><div class="article-navigation"><span class="prev">上一篇：<a href="filebrowser.html">filebrowser</a></span><span class="next">下一篇：<a href="ManuallyInstall-1.html">Manually Install</a></span></div></div></div></div></div></div></div></div><script src="asset/website.js"></script><script src="asset/plugins/copy-code/index.js"></script><script src="asset/plugins/highlight/index.js"></script><script type="application/payload+json">{"config":{"plugins":["highlight","copy-code"],"price":0,"name":"cloudcloudli/cloud","sha":"bf36b1a7584b5c558ffe407fcc196c7144e6a6e8","title":"Linux tutorial","id":67272},"catalog":[{"id":"Tutorial.html","name":"Tutorial.md","title":"Tutorial","depth":1},{"id":"Cloud.html","name":"Cloud.md","title":"Cloud","depth":1,"children":[{"id":"Pydio.html","name":"Pydio.md","title":"Pydio","depth":2,"children":[{"id":"Pydio-1.html","name":"Pydio-1.md","title":"Docker pull","depth":3}]},{"id":"filebrowser.html","name":"filebrowser.md","title":"filebrowser","depth":2,"children":[{"id":"ManuallyInstall-8.html","name":"ManuallyInstall-8.md","title":"Manually Install","depth":3},{"id":"ManuallyInstall-1.html","name":"ManuallyInstall-1.md","title":"Manually Install","depth":3},{"id":"Automaticallyinstall.html","name":"Automaticallyinstall.md","title":"Automatically install","depth":3}]}]}],"article":{"id":"ManuallyInstall-8.html","name":"ManuallyInstall-8.md","title":"Manually Install","content":"## 1.Manually Install\n\n### 1.1 Edit [filebrowser.service](https://github.com/vpslinuxinstall/Filebrowser/blob/master/filebrowser.service)\n\n```bash\nnano /lib/systemd/system/filebrowser.service\n```\n\n```bash\nDescription=Filebrowser Service  \nAfter=network.target  \nWants=network.target  \n\n[Service]  \nType=simple  \nPIDFile=/var/run/filebrowser.pid  \nExecStart=/usr/bin/filebrowser -c /etc/filebrowser/filebrowser.json  \nRestart=on-failure  \n\n[Install]  \nWantedBy=multi-user.target\n```\n\n### 1.2 Edit [filebrowser.json](https://github.com/vpslinuxinstall/Filebrowser/blob/master/filebrowser.json)\n\n```bash\nnano /etc/filebrowser/filebrowser.json\n```\n\n```bash\n{  \n  \"port\": 8300,  \n  \"noAuth\": false,  \n  \"baseURL\": \"/admin\",  \n  \"address\": \"0.0.0.0\",  \n  \"reCaptchaKey\": \"\",  \n  \"reCaptchaSecret\": \"\",  \n  \"database\": \"/etc/filebrowser/database.db\",  \n  \"log\": \"stdout\",  \n  \"plugin\": \"\",  \n  \"scope\": \"/\",  \n  \"allowCommands\": true,  \n  \"allowEdit\": true,    \n  \"allowNew\": true,  \n  \"commands\": [  \n    \"git\",  \n    \"svn\"  \n  ]  \n}  \n```\n\n### 1.3 Download [filebrowser](https://github.com/vpslinuxinstall/Filebrowser/blob/master/filebrowser) to /usr/bin/\n\n```bash\ncd /usr\ncd bin\nwget https://github.com/vpslinuxinstall/Filebrowser/blob/master/filebrowser\nsystemctl enable filebrowser\nsystemctl start filebrowser\n```\n"},"options":{"plugins_host":null,"context":"website","base":"./","features":["search","internal_link"]},"style":""}</script><script type="text/javascript">kancloud.bootstrap();</script></body></html>
