@@ -4,17 +4,21 @@ description: h5ai
 
 # Docker pull
 
-### Docker hub
+## Docker hub
 
-docker pull corfr/h5ai
+docker pull clue/h5ai
 
 ```bash
-sudo docker run -d -p 8090:80 -v /srv/h5aiwebftp:/var/www corfr/h5ai
+docker run -it --rm -p 8090:80 -v /srv/h5aiwebftp:/var/www clue/h5ai
+```
+
+```bash
+docker run -d --rm -p 8090:80 -v /srv/h5aiwebftp:/var/www clue/h5ai
 ```
 
 ```bash
 chmod 777 /srv/h5aiwebftp
 ```
 
-
+folder /var/lib/docker/volumes
 

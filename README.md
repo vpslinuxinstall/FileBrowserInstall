@@ -2,7 +2,7 @@
 description: Filebrowser
 ---
 
-# Filebrowser
+# Install software on Linux
 
 ## 1.Manually Install
 
@@ -52,7 +52,7 @@ nano /etc/filebrowser/filebrowser.json
     "git",  
     "svn"  
   ]  
-}  
+}
 ```
 
 ### 1.3 Download [filebrowser](https://github.com/vpslinuxinstall/Filebrowser/blob/master/filebrowser) to /usr/bin/
@@ -103,6 +103,4 @@ wget https://github.com/vpslinuxinstall/Filebrowser/blob/master/filebrowser.sh
 chmod +x filebrowser.sh
 ./filebrowser.sh
 ```
-
-
 

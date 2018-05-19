@@ -31,5 +31,3 @@ systemctl enable filebrowser
 systemctl start filebrowser
 ```
 
-## 
-

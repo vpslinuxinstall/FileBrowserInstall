@@ -1,24 +1,18 @@
 ---
-description: h5ai
+description: h5ai New UI Authentication
 ---
 
 # Docker pull
 
-### Docker hub
+## Docker pull
 
-docker pull clue/h5ai
+docker pull fanvinga/docker-h5ai
 
 ```bash
-docker run -it --rm -p 8090:80 -v /srv/h5aiwebftp:/var/www clue/h5ai     
+docker run -d -p 8090:80 -v /srv/h5aiwebftp:/share --restart=always fanvinga/docker-h5ai
 ```
 
 ```bash
-docker run -d --rm -p 8090:80 -v /srv/h5aiwebftp:/var/www clue/h5ai
+docker run -d -p 8090:80 -v /srv/h5aiwebftp:/share -e USER=aaaaaa -e PASSWD=aaaaaa --restart=always fanvinga/docker-h5ai:auth
 ```
-
-```bash
-chmod 777 /srv/h5aiwebftp
-```
-
-folder /var/lib/docker/volumes
 

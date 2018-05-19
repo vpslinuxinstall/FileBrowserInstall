@@ -8,5 +8,3 @@ chmod +x filebrowser.sh
 ./filebrowser.sh
 ```
 
-
-
