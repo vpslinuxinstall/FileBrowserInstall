@@ -1,4 +1,4 @@
 # Cloud
 
-Upload file to VPS
+Upload and download file
 
