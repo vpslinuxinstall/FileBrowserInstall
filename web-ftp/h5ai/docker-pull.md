@@ -20,3 +20,5 @@ docker run -d --rm -p 8090:80 -v /srv/h5aiwebftp:/var/www clue/h5ai
 chmod 777 /srv/h5aiwebftp
 ```
 
+folder /var/lib/docker/volumes
+
